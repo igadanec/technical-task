@@ -4,6 +4,7 @@ body {
   font-family: "Swansea", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: greyscale;
+  color: $dark_green-200;
 }
 
 ul {
@@ -11,5 +12,18 @@ ul {
   margin: 0;
   li {
     list-style: none;
+  }
+}
+
+.container {
+  &__inner {
+    padding: 0 1.25rem;
+    transition: padding 0.3s;
+    @media (min-width: $viewport-tablet) {
+      padding: 0 3.75rem;
+    }
+    @media (min-width: $viewport-desktop) {
+      padding: 0 7.0625rem;
+    }
   }
 }

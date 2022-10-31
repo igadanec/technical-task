@@ -68,19 +68,6 @@ const links = ref({
 </template>
 
 <style lang="scss" scoped>
-.fade-leave-active {
-  transition: 0.4s ease-out;
-}
-
-.fade-enter-active {
-  transition: 0.5s ease-in;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  transform: translateX(100%);
-  opacity: 0;
-}
 .menu {
   position: fixed;
   top: 0;

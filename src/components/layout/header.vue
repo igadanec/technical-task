@@ -30,35 +30,56 @@ watch(
         <span />
       </div>
     </div>
-    <transition name="fade">
+    <transition name="slide-left">
       <HeaderMenu v-if="menuOpened" @close="menuOpened = false" />
     </transition>
   </header>
 </template>
 
 <style lang="scss" scoped>
+.slide-left-leave-active {
+  transition: 0.4s ease-out;
+}
+
+.slide-left-enter-active {
+  transition: 0.5s ease-in;
+}
+
+.slide-left-enter-from,
+.slide-left-leave-to {
+  transform: translateX(100%);
+  opacity: 0;
+}
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 28px 113px;
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
+  z-index: 1030;
+  padding: 1.75rem 1.25rem;
+  transition: padding 0.3s;
+  @media (min-width: $viewport-tablet) {
+    padding: 1.75rem 3.75rem;
+  }
+  @media (min-width: $viewport-desktop) {
+    padding: 1.75rem 7.0625rem;
+  }
   &__left {
     .logo {
       display: flex;
       align-items: flex-end;
-      height: 30px;
+      height: 1.875rem;
       svg {
         display: block;
         &:first-child {
-          height: 30px;
+          height: 1.875rem;
         }
         &:last-child {
-          margin-left: 5px;
-          height: 26px;
+          margin-left: 0.3125rem;
+          height: 1.625rem;
         }
       }
     }
@@ -69,25 +90,25 @@ watch(
       &:hover {
         span {
           &:first-child {
-            width: 20px;
+            width: 1.25rem;
           }
           &:last-child {
-            width: 34px;
+            width: 2.125rem;
           }
         }
       }
       span {
         margin-left: auto;
         display: block;
-        height: 2px;
+        height: 0.125rem;
         background: $black;
         transition: 0.3s ease-out;
         &:first-child {
-          width: 34px;
+          width: 2.125rem;
         }
         &:last-child {
-          margin-top: 8px;
-          width: 20px;
+          margin-top: 0.5rem;
+          width: 1.25rem;
         }
       }
     }

@@ -4,6 +4,7 @@ import vue from "@vitejs/plugin-vue";
 import path from "path";
 import svgLoader from "vite-svg-loader";
 import AutoImport from "unplugin-auto-import/vite";
+import Components from "unplugin-vue-components/vite";
 
 const pathSrc = path.resolve(__dirname, "./src");
 
@@ -18,6 +19,10 @@ export default defineConfig({
       eslintrc: {
         enabled: true,
       },
+    }),
+    Components({
+      dts: true,
+      dirs: ["src/components/shared"],
     }),
   ],
   resolve: {

@@ -17,10 +17,16 @@ defineProps({
 </script>
 
 <template>
-  <button v-if="!to" :class="`btn btn--${type}`">{{ label }}</button>
-  <router-link v-else :to="to" :class="`btn btn--${type}`">{{
-    label
-  }}</router-link>
+  <button v-thover="{ scale: 1.3 }" v-if="!to" :class="`btn btn--${type}`">
+    {{ label }}
+  </button>
+  <router-link
+    v-thover="{ scale: 1.3 }"
+    v-else
+    :to="to"
+    :class="`btn btn--${type}`"
+    >{{ label }}</router-link
+  >
 </template>
 
 <style lang="scss" scoped>

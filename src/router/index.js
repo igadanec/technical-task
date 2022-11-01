@@ -12,9 +12,9 @@ const routes = [
     component: () => import("@/views/services/index.vue"),
   },
   {
-    path: "/services/software-development",
-    name: "software-development",
-    component: () => import("@/views/services/software-development.vue"),
+    path: "/services/digital-design",
+    name: "digital-design",
+    component: () => import("@/views/services/digital-design.vue"),
   },
   {
     path: "/blog",

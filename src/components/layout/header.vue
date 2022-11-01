@@ -19,13 +19,17 @@ watch(
 <template>
   <header class="header">
     <div class="header__left">
-      <router-link to="/" class="logo">
+      <router-link to="/" class="logo" v-thover="{ scale: 1.3 }">
         <IconLogo />
         <IconLogoText />
       </router-link>
     </div>
     <div class="header__right">
-      <div class="hamburger" @click="menuOpened = true">
+      <div
+        v-thover="{ scale: 1.3 }"
+        class="hamburger"
+        @click="menuOpened = true"
+      >
         <span />
         <span />
       </div>
@@ -58,7 +62,7 @@ watch(
   top: 0;
   right: 0;
   left: 0;
-  z-index: 1030;
+  z-index: 100;
   padding: 1.75rem 1.25rem;
   transition: padding 0.3s;
   @media (min-width: $viewport-tablet) {
@@ -69,6 +73,7 @@ watch(
   }
   &__left {
     .logo {
+      cursor: initial;
       display: flex;
       align-items: flex-end;
       height: 1.875rem;
@@ -86,7 +91,6 @@ watch(
   }
   &__right {
     .hamburger {
-      cursor: pointer;
       &:hover {
         span {
           &:first-child {

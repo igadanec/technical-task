@@ -8,6 +8,7 @@
     "lint": "vite lint"
   },
   "dependencies": {
+    "@namchee/tetikus": "^0.4.2",
     "@vee-validate/rules": "^4.7.1",
     "core-js": "^3.8.3",
     "vee-validate": "^4.7.1",

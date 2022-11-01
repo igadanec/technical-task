@@ -35,10 +35,10 @@ const links = ref({
   <div class="menu">
     <div class="menu__left" />
     <div class="menu__right">
-      <div class="close" @click="emit('close')" />
+      <div v-thover="{ scale: 1.3 }" class="close" @click="emit('close')" />
       <ul class="links--left">
         <li v-for="link in links.left" :key="link.label">
-          <router-link :to="link.slug"
+          <router-link v-thover="{ scale: 1.3 }" :to="link.slug"
             >{{ link.label }} <IconArrowTopRight
           /></router-link>
         </li>
@@ -46,19 +46,23 @@ const links = ref({
       <div class="links--right">
         <ul>
           <li v-for="link in links.right" :key="link.label">
-            <router-link :to="link.slug"
+            <router-link v-thover="{ scale: 1.3 }" :to="link.slug"
               >{{ link.label }} <IconArrowTopRight
             /></router-link>
           </li>
         </ul>
         <div class="contact">
-          <a href="mailto:hello@asynclabs.co">hello@asynclabs.co</a>
-          <a href="tel:+385994936071">+385 99 4936 071</a>
+          <a v-thover="{ scale: 1.3 }" href="mailto:hello@asynclabs.co"
+            >hello@asynclabs.co</a
+          >
+          <a v-thover="{ scale: 1.3 }" href="tel:+385994936071"
+            >+385 99 4936 071</a
+          >
           <div class="contact--social">
-            <a href="#">Fb.</a>
-            <a href="#">Ln.</a>
-            <a href="#">Tw.</a>
-            <a href="#">In.</a>
+            <a v-thover="{ scale: 1.3 }" href="#">Fb.</a>
+            <a v-thover="{ scale: 1.3 }" href="#">Ln.</a>
+            <a v-thover="{ scale: 1.3 }" href="#">Tw.</a>
+            <a v-thover="{ scale: 1.3 }" href="#">In.</a>
           </div>
         </div>
       </div>
@@ -102,7 +106,6 @@ const links = ref({
       grid-gap: 2rem;
     }
     .close {
-      cursor: pointer;
       position: absolute;
       right: 2.25rem;
       top: 2.25rem;
@@ -143,7 +146,6 @@ const links = ref({
       }
       li {
         a {
-          cursor: pointer;
           width: fit-content;
           display: flex;
           align-items: center;

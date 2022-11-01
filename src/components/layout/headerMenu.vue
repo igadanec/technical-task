@@ -1,5 +1,4 @@
 <script setup>
-import { ref, defineEmits } from "vue";
 import IconArrowTopRight from "@/assets/icons/arrow-top-right.svg";
 
 const emit = defineEmits(["close"]);

@@ -10,11 +10,13 @@ defineProps({
 <template>
   <section class="text-section">
     <div class="text-section__header">
-      <slot v-if="$slots.title" name="title" />
+      <div class="title">
+        <slot v-if="$slots.title" name="title" />
+      </div>
       <h1 class="float-title" v-if="floatText">{{ floatText }}</h1>
     </div>
-    <div class="text-section__content">
-      <slot v-if="$slots.description" name="description" />
+    <div v-if="$slots.description" class="text-section__content">
+      <slot name="description" />
     </div>
   </section>
 </template>
@@ -31,16 +33,19 @@ defineProps({
   &__header {
     position: relative;
     margin-bottom: 2.5625rem;
+    .title {
+      max-width: 45rem;
+    }
     .float-title {
       display: none;
       width: 20rem;
       overflow: hidden;
       position: absolute;
-      bottom: 0;
+      top: 0;
       font-size: 6.875rem;
       line-height: 1;
       color: rgba(18, 18, 18, 0);
-      -webkit-text-stroke: 0.6px #e5e5e5;
+      -webkit-text-stroke: 0.6px $grey-200;
       @media (min-width: $viewport-laptop) {
         display: block;
         right: calc(-7.5rem);

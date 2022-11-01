@@ -29,7 +29,5 @@ import ContactForm from "@/components/form/ContactForm.vue";
 .container {
   margin-top: 10.625rem;
   margin-bottom: 17.9375rem;
-  &__inner {
-  }
 }
 </style>

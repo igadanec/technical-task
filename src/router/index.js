@@ -9,7 +9,12 @@ const routes = [
   {
     path: "/services",
     name: "services",
-    component: () => import("@/views/services.vue"),
+    component: () => import("@/views/services/index.vue"),
+  },
+  {
+    path: "/services/software-development",
+    name: "software-development",
+    component: () => import("@/views/services/software-development.vue"),
   },
   {
     path: "/blog",
@@ -26,11 +31,19 @@ const routes = [
     name: "contact",
     component: () => import("@/views/contact.vue"),
   },
+  {
+    name: "not-found",
+    path: "/:pathMatch(.*)*",
+    component: () => import("@/components/error/404.vue"),
+  },
 ];
 
 const router = createRouter({
   history: createWebHashHistory(),
   routes,
+  scrollBehavior() {
+    return { top: 0 };
+  },
 });
 
 export default router;

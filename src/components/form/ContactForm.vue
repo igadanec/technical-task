@@ -121,7 +121,7 @@ const handleSubmit = (values) => {
       }
     }
   }
-  .btn {
+  :deep().btn {
     margin: 3.75rem auto 0;
   }
   &__success {

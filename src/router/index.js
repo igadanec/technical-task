@@ -17,14 +17,14 @@ const routes = [
     component: () => import("@/views/services/digital-design.vue"),
   },
   {
-    path: "/blog",
-    name: "blog",
-    component: () => import("@/views/blog.vue"),
-  },
-  {
     path: "/careers",
     name: "careers",
-    component: () => import("@/views/careers.vue"),
+    component: () => import("@/views/careers/index.vue"),
+  },
+  {
+    path: "/careers/ux-designer",
+    name: "ux-designer",
+    component: () => import("@/views/careers/ux-designer.vue"),
   },
   {
     path: "/contact",

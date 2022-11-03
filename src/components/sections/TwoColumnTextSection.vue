@@ -43,6 +43,34 @@
       @media (min-width: $viewport-laptop) {
         grid-column: 1/6;
       }
+      :deep() {
+        p {
+          margin-bottom: 1.25rem;
+        }
+        ul {
+          margin-top: 2.9375rem;
+          li {
+            display: flex;
+            align-items: flex-start;
+            &:not(:last-child) {
+              margin-bottom: 1.375rem;
+            }
+            &:before {
+              content: "";
+              display: block;
+              margin-top: 0.8125rem;
+              width: 0.6875rem;
+              min-width: 0.6875rem;
+              height: 0.0625rem;
+              background-color: $cyan;
+              margin-right: 1.25rem;
+            }
+            h5 {
+              text-transform: uppercase;
+            }
+          }
+        }
+      }
     }
     &--right {
       grid-column: 1/13;
@@ -57,14 +85,16 @@
           margin-top: 2.9375rem;
           li {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             &:not(:last-child) {
               margin-bottom: 1.375rem;
             }
             &:before {
               content: "";
               display: block;
+              margin-top: 0.8125rem;
               width: 0.6875rem;
+              min-width: 0.6875rem;
               height: 0.0625rem;
               background-color: $cyan;
               margin-right: 1.25rem;

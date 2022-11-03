@@ -6,18 +6,64 @@ import HeaderMenu from "@/components/layout/headerMenu.vue";
 const route = useRoute();
 
 let menuOpened = ref(false);
+const isScrolled = ref(true);
+const hasBackground = ref(false);
+const lastScrollPosition = ref(0);
 
-/* Close menu when route is changed */
 watch(
   () => route.path,
   () => {
     menuOpened.value = false;
   }
 );
+
+const whiteNav = computed(() => {
+  let routes = ["digital-design", "ux-designer"];
+  if (routes.includes(route.name)) {
+    return true;
+  } else {
+    return false;
+  }
+});
+
+onMounted(() => {
+  lastScrollPosition.value = window.pageYOffset;
+  window.addEventListener("scroll", isNavScrolled);
+  window.addEventListener("scroll", handleScroll);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener("scroll", isNavScrolled);
+  window.removeEventListener("scroll", handleScroll);
+});
+
+const isNavScrolled = () => {
+  window.scrollY > 1
+    ? (hasBackground.value = true)
+    : (hasBackground.value = false);
+};
+
+const handleScroll = () => {
+  if (window.pageYOffset < 0) {
+    return;
+  }
+  if (Math.abs(window.pageYOffset - lastScrollPosition.value) < 30) {
+    return;
+  }
+  isScrolled.value = window.pageYOffset < lastScrollPosition.value;
+  lastScrollPosition.value = window.pageYOffset;
+};
 </script>
 
 <template>
-  <header class="header">
+  <header
+    class="header"
+    :class="{
+      'header--scrolled': hasBackground,
+      'header--hidden': !isScrolled,
+      'header--white': whiteNav,
+    }"
+  >
     <div class="header__left">
       <router-link to="/" class="logo" v-thover="{ scale: 1.3 }">
         <IconLogo />
@@ -64,12 +110,36 @@ watch(
   left: 0;
   z-index: 100;
   padding: 1.75rem 1.25rem;
-  transition: padding 0.3s;
+  transition: 0.3s;
   @media (min-width: $viewport-tablet) {
     padding: 1.75rem 3.75rem;
   }
   @media (min-width: $viewport-desktop) {
     padding: 1.75rem 7.0625rem;
+  }
+  &--scrolled {
+    background: $dark-green_200;
+    :deep() {
+      svg path {
+        fill: $white;
+      }
+    }
+    .hamburger span {
+      background: $white !important;
+    }
+  }
+  &--white {
+    :deep() {
+      svg path {
+        fill: $white;
+      }
+    }
+    .hamburger span {
+      background: $white !important;
+    }
+  }
+  &--hidden {
+    transform: translate3d(0, -100%, 0);
   }
   &__left {
     .logo {
@@ -85,6 +155,9 @@ watch(
         &:last-child {
           margin-left: 0.3125rem;
           height: 1.625rem;
+        }
+        :deep() path {
+          transition: 0.3s;
         }
       }
     }

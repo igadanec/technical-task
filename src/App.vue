@@ -1,5 +1,6 @@
 <script setup>
 import Header from "@/components/layout/header.vue";
+import Footer from "@/components/layout/footer.vue";
 import IconArrowTopRight from "@/assets/icons/arrow-top-right.svg";
 </script>
 
@@ -11,6 +12,7 @@ import IconArrowTopRight from "@/assets/icons/arrow-top-right.svg";
   </tetikus>
   <Header />
   <router-view />
+  <Footer />
 </template>
 
 <style lang="scss" scoped>

@@ -51,6 +51,7 @@ const handleInput = (event) => {
   outline: none;
   font-size: 14px;
   resize: none;
+  font-family: "Swansea", sans-serif;
   &::placeholder {
     color: transparent;
     visibility: hidden;

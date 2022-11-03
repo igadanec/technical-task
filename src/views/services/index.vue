@@ -40,7 +40,7 @@ const steps = ref([
           <img src="@/assets/images/services/software-large.webp" />
         </template>
         <template #content>
-          <h2>Sofrware & App Development</h2>
+          <h2>Software & App Development</h2>
           <p>
             Delivering tailored engineering solutions to your business
             challenges, whether it is architectural design or web application
